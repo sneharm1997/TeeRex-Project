@@ -1,0 +1,52 @@
+<div class="shopping-cart">
+    <h3>Shopping Cart</h3>
+    <div class="empty-cart" *ngIf="items.length==0">
+        <img class="emty-cart-img mb-50" src="../../assets/empty-cart-svgrepo-com.svg">
+        <i class="fa-light fa-bags-shopping"></i>
+        <p class="mb-50 fz-25">Your shopping cart is empty</p>
+        <a routerLink="/home" class="btn btn-primary black-btn">Start Shopping</a>
+    </div>
+    <div class="cart-items" *ngIf="items.length">
+    <ng-container >
+        <table class="table" >
+            <tr class="table-headings">
+                <td>Product</td>
+                <td>Name</td>
+                <td>Quantity</td>
+                <td>Price</td>
+                <td>Delete</td>
+            </tr>
+            <div class="border-bot"></div>
+            <tr class="added-product" *ngFor="let item of items">
+                <td>
+            <img class="added-product-image" src={{item.imageURL}}>
+        </td>
+        <td>
+            <p class="title">{{item.name}}</p>
+
+        </td>
+        <td>
+            <p class="quantity">{{item.count}}</p>
+            
+        </td>
+        <td>
+            <p class="price">{{item.price}}</p>
+            
+        </td>
+        <td>
+            <div>
+                <i (click)="deleteProduct(item.id)" class="fa-solid fa-trash-can"></i>
+            </div>
+        </td>
+            
+          
+           
+        </tr>
+        </table>
+    </ng-container>
+    <div class="display-flex" *ngIf="total!=0">
+        <p>Total</p>
+        <p>:</p>
+        <p>Rs.{{total}}</p> </div>
+</div>
+</div>

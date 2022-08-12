@@ -1,0 +1,80 @@
+@import "../styles.scss";
+
+.landing-page {
+    background: #f4eaec4d;
+
+    .navbar {
+        width: 100%;
+        padding: 40px 30px;
+        background: $white !important;
+        font-size: 20px;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+        .float-left {
+            position: absolute;
+            left: 30px;
+            font-size: 40px;
+            cursor: pointer;
+color:$gray;
+            &:hover {
+                color: $pink;
+            }
+        }
+
+        .navbar-brand {
+            font-size: 20px;
+            color: $gray;
+            position: absolute;
+            top: 50%;
+            right: 50%;
+            transform: translate(50%, -50%);
+            font-weight: bold;
+
+            &:hover {
+                color: $pink;
+            }
+        }
+
+        .float-right {
+            position: absolute;
+            right: 30px;
+
+            .products-link {
+                color: $gray;
+                cursor: pointer;
+                text-decoration: none;
+
+                &:hover {
+                    color: $pink;
+                }
+            }
+
+            .fa-cart-shopping {
+                color: $gray;
+                margin-left: 20px;
+                cursor: pointer;
+
+                &:hover {
+                    color: $pink;
+                }
+            }
+
+            .badge {
+                position: absolute;
+                display: inline-block;
+                width: 15px;
+                height: 15px;
+                background: $white;
+                border-radius: 50%;
+                color: $gray;
+                font-size: 12px;
+                line-height: 0;
+                padding: 7px 5px 5px 5px;
+
+                &:hover {
+                    color: $pink;
+                }
+            }
+        }
+    }
+}

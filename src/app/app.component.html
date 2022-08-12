@@ -1,0 +1,17 @@
+<div class="landing-page">
+<div>
+<nav class="navbar navbar-dark bg-dark">
+  <i routerLink="/home" class="fa-solid fa-vest-patches float-left"></i>
+  <a class="navbar-brand" routerLink="/home">TeeRex Store
+  </a>
+  <div class="float-right">
+    <a routerLink="/home" class="products-link">Products</a>
+    <i routerLink="/cart" class="fa-solid fa-cart-shopping"></i>
+    <span class="badge">{{totalCartItems}}</span>
+  </div>
+</nav>
+</div>
+<div>
+<router-outlet></router-outlet>
+</div>
+</div>

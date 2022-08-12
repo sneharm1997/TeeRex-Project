@@ -1,0 +1,118 @@
+@import "../../styles.scss";
+
+.products-page {
+    display: flex;
+    padding: 40px 80px;
+
+    .filter-section {
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        padding: 30px 40px 30px 0px;
+        border-radius: 5px;
+        height: fit-content;
+        margin-right: 10%;
+        background-color: $white;
+        color: $gray;
+
+        .list {
+            list-style: none;
+            margin-bottom: 20px;
+
+            .list-heading {
+                font-weight: bold;
+            }
+
+            .mb-10{
+                margin-bottom: 10px;
+            }
+            .checkbox {
+                margin-right: 10px;
+                cursor: pointer;
+            }
+        }
+    }
+
+    .search-section {
+        .input-group {
+            margin: 0px auto 50px auto;
+            width: 300px;
+            .fas {
+                color: $gray;
+            }
+            .form-control {
+                &:focus {
+                    border-color: $pink ;
+                    box-shadow: 0 0 0 0.25rem rgb(213 197 208 / 68%);
+                }
+            }
+        }
+
+        .input-group-text {
+            background-color: transparent;
+            cursor: pointer;
+
+            &:hover {
+                transform: translate3D(0, -1px, 0) scale(1.1);
+                transition: all .4s ease;
+            }
+        }
+    }
+
+    .products-display-section {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-gap: 60px;
+
+        @media screen and (max-width: 1080px) {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        @media screen and (max-width: 830px) {
+            grid-template-columns: 1fr;
+        }
+
+        .card {
+            width: 250px;
+            padding: 20px;
+            transition: all .5s ease;
+            color: $gray;
+
+            .card-img-top {
+                width: 150px;
+                align-self: center;
+
+                &:hover {
+                    transform: translate3D(0, -1px, 0) scale(1.1);
+                    transition: all .4s ease;
+                }
+            }
+
+            .card-title {
+                font-size: 16px;
+            }
+
+            .card-text {
+                font-size: 14px;
+            }
+
+            .quantity-button {
+                margin: 12px 0px;
+                border: 2px solid $gray;
+                width: fit-content;
+                border-radius: 5px;
+                padding: 3px;
+
+                button {
+                    background: none;
+                    border: none;
+                    color: $gray;
+
+                    &:hover:not(.no-hover-color) {
+                        color: $pink;
+                    }
+                }
+            }
+
+
+        }
+    }
+}

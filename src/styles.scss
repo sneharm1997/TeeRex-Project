@@ -1,0 +1,25 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css";
+@import "../src/assets/variables.scss";
+
+
+body{
+    font-family: monospace !important;
+}
+.black-btn {
+    border: none;
+    background: $gray;
+
+    &:hover {
+        background: $pink;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    }
+
+    &:active {
+        background: #e95291;
+    }
+}
+
+.mb-50{
+    margin-bottom: 50px;
+}
