@@ -2,7 +2,7 @@
 
 .landing-page {
     height: 100vh;
-
+    background: $background;
     .navbar {
         width: 100%;
         padding: 40px 30px;
@@ -77,5 +77,8 @@
                 }
             }
         }
+    }
+    .background{
+        background: $background;
     }
 }
