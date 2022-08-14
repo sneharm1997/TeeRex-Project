@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Product } from '../product';
 import { CartProductsService } from '../services/cart-products.service';
-import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import {  FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-products',
@@ -26,7 +26,7 @@ export class ProductsComponent implements OnInit {
     {value:'Rs. 450',level:[451, 1000]}
   ]
   
-  constructor(private http: HttpClient, private cartProducts: CartProductsService, private fb:FormBuilder) { }
+  constructor(private http: HttpClient, private cartProducts: CartProductsService) { }
 
   ngOnInit(): void {
 
