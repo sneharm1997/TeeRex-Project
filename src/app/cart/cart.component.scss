@@ -4,7 +4,8 @@
     padding: 50px;
     margin: 0px auto;
     color: $gray;
-    height: 86vh;
+    background: $background;
+
     h3 {
         margin-bottom: 50px;
     }
@@ -19,13 +20,15 @@
             width: 10%;
             color: $gray;
         }
-        .fz-25{
-            font-size:25px
+
+        .fz-25 {
+            font-size: 25px
         }
     }
 
     .table {
         width: 100%;
+        color: $gray;
 
         .table-headings {
             display: grid;
@@ -39,12 +42,26 @@
         .border-bot {
             border-bottom: 2px solid $pink;
         }
+
+        .quantity-button {
+            display: flex;
+
+            .inc-dec-btn {
+                height: fit-content;
+                border-radius: 10px;
+                cursor: pointer;
+                &:hover{
+                    color:$pink;
+                }
+            }
+        }
     }
 
     .cart-items {
         padding: 20px;
         box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
         border-radius: 10px;
+        background: $white;
 
         .added-product {
             display: grid;
@@ -59,6 +76,9 @@
             .fa-trash-can {
                 font-size: 25px;
                 cursor: pointer;
+                &:hover{
+                    color:$pink;
+                }
             }
         }
 
@@ -66,8 +86,7 @@
             display: flex;
             border-top: 2px solid $pink;
             width: 100%;
-            justify-content: right;
-            padding-right: 10%;
+            justify-content: center;
 
             p {
                 margin: 10px;

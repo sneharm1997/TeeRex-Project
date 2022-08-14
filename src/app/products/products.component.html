@@ -48,11 +48,6 @@
                 <div class="card-body">
                   <h5 class="card-title">{{product.name}}</h5>
                   <p class="card-text">Rs.{{product.originalPrice}}</p>
-                  <div class="quantity-button">
-                    <button (click)="inc(product)">+</button>
-                    <button class="no-hover-color">{{product.count}}</button>
-                    <button (click)="dec(product)">-</button>
-                </div>
                   <a (click)="addToCart(product)" class="btn btn-primary black-btn">Add to Cart</a>
                 </div>
               </div>

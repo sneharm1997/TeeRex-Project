@@ -1,8 +1,8 @@
 @import "../styles.scss";
 
 .landing-page {
-    background: #f4eaec4d;
-
+    background: $background;
+height: 100vh;
     .navbar {
         width: 100%;
         padding: 40px 30px;

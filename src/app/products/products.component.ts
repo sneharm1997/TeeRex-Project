@@ -50,20 +50,6 @@ export class ProductsComponent implements OnInit {
     }
   }
 
-  inc(item) {
-    if (item.count < item.quantity) {
-      item.count++;
-      item.price = item.originalPrice * item.count;
-    }
-  }
-
-  dec(item) {
-    if (item.count > 1) {
-      item.count--;
-      item.price = item.originalPrice * item.count;
-    }
-  }
-
   searchProducts(value){
     this.searchFilterString=value;
   }
