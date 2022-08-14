@@ -13,12 +13,12 @@ export class ProductsComponent implements OnInit {
 
   products: Product[];
   count: number = 1;
-  filteredString = {color:[],gender:[],price:[],type:[]};
+  filteredString = { color: [], gender: [], price: [], type: [] };
   filstring: string;
-  lowPrice:Array<number>=[0,250];
-  mediumPrice:Array<number>=[251,450];
-  highPrice:Array<number>=[451,1000];
-    searchForm= new FormControl('')
+  lowPrice: Array<number> = [0, 250];
+  mediumPrice: Array<number> = [251, 450];
+  highPrice: Array<number> = [451, 1000];
+  searchForm = new FormControl('')
   searchFilterString: any;
 
 
@@ -50,8 +50,8 @@ export class ProductsComponent implements OnInit {
     }
   }
 
-  searchProducts(value){
-    this.searchFilterString=value;
+  searchProducts(value) {
+    this.searchFilterString = value;
   }
 
 }
