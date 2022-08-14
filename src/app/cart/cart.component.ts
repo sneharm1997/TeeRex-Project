@@ -14,9 +14,7 @@ export class CartComponent implements OnInit {
 
   ngOnInit(): void {
     this.items = this.cartProducts.getProducts();
-    this.items.forEach((item) => {
-      return item.originalPrice = item.price;
-    })
+   
     Object.defineProperty(this.items, 'originalPrice', {
       writable: false,
       configurable: false
@@ -28,15 +26,23 @@ export class CartComponent implements OnInit {
     this.cartProducts.deleteItem(i);
     this.total = 0;
     this.calculateTotal(this.items);
-
   }
 
   calculateTotal(items) {
+    this.total=0;
     items.forEach(item => {
       this.total += item.price;
     })
     return this.total;
   }
 
+  inc(item) {
+  this.cartProducts.incrementQty(item);
+  this.calculateTotal(this.items);
+  }
 
+  dec(item) {
+    this.cartProducts.decrementQty(item);
+    this.calculateTotal(this.items);
+  }
 }

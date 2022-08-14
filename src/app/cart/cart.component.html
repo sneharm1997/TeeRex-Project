@@ -25,9 +25,10 @@
             <p class="title">{{item.name}}</p>
 
         </td>
-        <td>
+        <td class="quantity-button">
+            <button class="inc-dec-btn"  (click)="inc(item)">+</button>
             <p class="quantity">{{item.count}}</p>
-            
+            <button class="inc-dec-btn"  (click)="dec(item)">-</button>
         </td>
         <td>
             <p class="price">{{item.price}}</p>
