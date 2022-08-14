@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Product } from '../product';
 import { CartProductsService } from '../services/cart-products.service';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-products',
@@ -13,16 +13,20 @@ export class ProductsComponent implements OnInit {
 
   products: Product[];
   count: number = 1;
-  filteredString = {color:[],gender:[],price:[],type:[]};
+  filteredString = { color: [], gender: [], price: [], type: [] };
   filstring: string;
-  lowPrice:Array<number>=[0,250];
-  mediumPrice:Array<number>=[251,450];
-  highPrice:Array<number>=[451,1000];
-    searchForm= new FormControl('')
-  searchFilterString: any;
-
-
-  constructor(private http: HttpClient, private cartProducts: CartProductsService) { }
+  searchForm = new FormControl('')
+  searchFilterString: string;
+  colors = ['Red','Blue','Green'];
+  genders = ['Men','Women'];
+  types=['Polo','Hoodie','Basic'];
+  prices=[
+    {value:'0 - Rs. 250',level:[0, 250]},
+    {value:'Rs. 251 - Rs. 450',level:[251, 450]},
+    {value:'Rs. 450',level:[451, 1000]}
+  ]
+  
+  constructor(private http: HttpClient, private cartProducts: CartProductsService, private fb:FormBuilder) { }
 
   ngOnInit(): void {
 
@@ -38,11 +42,9 @@ export class ProductsComponent implements OnInit {
     this.cartProducts.addProducts(product);
   }
 
-
-  applyFilter(checked, value, key): any {
+  applyFilter(checked, value, key) {
     if (checked) {
       this.filteredString[key].push(value);
-      console.log(this.filteredString)
     } else {
       this.filteredString[key] = this.filteredString[key].filter(val => {
         return val.toLowerCase() !== value.toLowerCase();
@@ -50,8 +52,8 @@ export class ProductsComponent implements OnInit {
     }
   }
 
-  searchProducts(value){
-    this.searchFilterString=value;
+  searchProducts(value) {
+    this.searchFilterString = value;
   }
 
 }

@@ -28,7 +28,7 @@ export class CartComponent implements OnInit {
     this.calculateTotal(this.items);
   }
 
-  calculateTotal(items) {
+  calculateTotal(items) : number {
     this.total=0;
     items.forEach(item => {
       this.total += item.price;
