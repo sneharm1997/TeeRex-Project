@@ -2,57 +2,60 @@
     <div class="filter-section">
         <ul class="list">
             <li class="list-heading mb-10">Color</li>
-            <li>
-                <input type="checkbox" value="red" (change)="applyFilter($event.target?.checked,$event.target?.value,'color')"  class="checkbox">Red
-            </li>
-            <li>
-                <input type="checkbox"  value="blue" (change)="applyFilter($event.target?.checked,$event.target?.value,'color')" class="checkbox">Blue
-            </li>
-            <li>
-                <input type="checkbox"  value="green" (change)="applyFilter($event.target?.checked,$event.target?.value,'color')" class="checkbox">Green
+            <li *ngFor="let color of colors">
+                <input type="checkbox" [value]="color" 
+                    (change)="applyFilter($event.target?.checked,$event.target?.value,'color')"
+                    class="checkbox">{{color}}
             </li>
         </ul>
+        <div class="border-bot"></div>
         <ul class="list">
             <li class="list-heading mb-10">Gender</li>
-            <li><input type="checkbox" value="men" (change)="applyFilter($event.target?.checked,$event.target?.value,'gender')" class="checkbox">Men</li>
-            <li><input type="checkbox" value="women" (change)="applyFilter($event.target?.checked,$event.target?.value,'gender')" class="checkbox">Women</li>
+            <li *ngFor="let gender of genders">
+                <input type="checkbox" [value]="gender"
+                    (change)="applyFilter($event.target?.checked,$event.target?.value,'gender')"
+                    class="checkbox">{{gender}}
+            </li>
         </ul>
+        <div class="border-bot"></div>
         <ul class="list">
             <li class="list-heading mb-10">Price</li>
-            <li><input type="checkbox" [value]="lowPrice" (change)="applyFilter($event.target?.checked,$event.target?.value,'price')" class="checkbox">0 - Rs. 250</li>
-            <li><input type="checkbox" [value]="mediumPrice" (change)="applyFilter($event.target?.checked,$event.target?.value,'price')" class="checkbox">Rs. 251 - Rs. 450</li>
-            <li><input type="checkbox" [value]="highPrice" (change)="applyFilter($event.target?.checked,$event.target?.value,'price')" class="checkbox">Rs. 450</li>
+            <li *ngFor="let price of prices">
+                <input type="checkbox" [value]="price.level"
+                    (change)="applyFilter($event.target?.checked,$event.target?.value,'price')"
+                    class="checkbox">{{price.value}}
+            </li>
         </ul>
+        <div class="border-bot"></div>
         <ul class="list">
             <li class="list-heading mb-10">Type</li>
-            <li><input type="checkbox" value="polo" (change)="applyFilter($event.target?.checked,$event.target?.value,'type')" class="checkbox">Polo</li>
-            <li><input type="checkbox" value="hoodie" (change)="applyFilter($event.target?.checked,$event.target?.value,'type')" class="checkbox">Hoodie</li>
-            <li><input type="checkbox" value="basic" (change)="applyFilter($event.target?.checked,$event.target?.value,'type')" class="checkbox">Basic</li>
+            <li *ngFor="let type of types"><input type="checkbox" [value]="type"
+                    (change)="applyFilter($event.target?.checked,$event.target?.value,'type')" class="checkbox">{{type}}
+            </li>
         </ul>
     </div>
 
-  <div>
-    <form  class="search-section">
-        <div class="input-group rounded">
-            <input type="search" class="form-control rounded" [formControl]="searchForm" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
-            <span class="input-group-text border-0" (click)="searchProducts(searchForm.value)" id="search-addon">
-              <i class="fas fa-search"></i>
-            </span>
-          </div>
+    <div>
+        <form class="search-section">
+            <div class="input-group rounded">
+                <input type="search" class="form-control rounded" [formControl]="searchForm" placeholder="Search"
+                    aria-label="Search" aria-describedby="search-addon" />
+                <span class="input-group-text border-0" (click)="searchProducts(searchForm.value)" id="search-addon">
+                    <i class="fas fa-search"></i>
+                </span>
+            </div>
         </form>
-    <div class="products-display-section">
-        
-        <div *ngFor="let product of products | filter:filteredString:searchFilterString">
-            <div class="card" >
-                <img class="card-img-top" src={{product.imageURL}} alt="Card image cap">
-                <div class="card-body">
-                  <h5 class="card-title">{{product.name}}</h5>
-                  <p class="card-text">Rs.{{product.originalPrice}}</p>
-                  <a (click)="addToCart(product)" class="btn btn-primary black-btn">Add to Cart</a>
+        <div class="products-display-section">
+            <div *ngFor="let product of products | filter:filteredString:searchFilterString">
+                <div class="card">
+                    <img class="card-img-top" src={{product.imageURL}} alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">{{product.name}}</h5>
+                        <p class="card-text">Rs.{{product.originalPrice}}</p>
+                        <a (click)="addToCart(product)" class="btn btn-primary black-btn">Add to Cart</a>
+                    </div>
                 </div>
-              </div>
+            </div>
         </div>
-        
     </div>
-</div>
 </div>

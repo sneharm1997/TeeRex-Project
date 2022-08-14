@@ -1,7 +1,7 @@
 <div class="shopping-cart">
     <h3>Shopping Cart</h3>
     <div class="empty-cart" *ngIf="items.length==0">
-        <img class="emty-cart-img mb-50" src="../../assets/empty-cart-svgrepo-com.svg">
+        <img class="emty-cart-img mb-50" src="../../assets/images/empty-cart-svgrepo-com.svg">
         <i class="fa-light fa-bags-shopping"></i>
         <p class="mb-50 fz-25">Your shopping cart is empty</p>
         <a routerLink="/home" class="btn btn-primary black-btn">Start Shopping</a>
@@ -39,9 +39,6 @@
                 <i (click)="deleteProduct(item.id)" class="fa-solid fa-trash-can"></i>
             </div>
         </td>
-            
-          
-           
         </tr>
         </table>
     </ng-container>

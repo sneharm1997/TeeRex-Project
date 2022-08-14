@@ -47,27 +47,12 @@ export class CartProductsService {
       }
     })
     localStorage.setItem("products", JSON.stringify(this.addedProducts));
-
   }
-
-
-  containsObject(obj, listObj) {
-    var i;
-    for (i = 0; i < listObj.length; i++) {
-      if (listObj[i].id === obj.id) {
-        return true;
-      }
-    }
-
-    return false;
-  }
-
 
   getProducts() {
     if (localStorage.getItem("products")) {
       this.addedProducts = JSON.parse(localStorage.getItem("products"));
     }
-
     return this.addedProducts;
   }
 
@@ -82,6 +67,5 @@ export class CartProductsService {
     }
     this.addedProductsAsObs.next(this.addedProducts);
     localStorage.setItem("products", JSON.stringify(items));
-
   }
 }

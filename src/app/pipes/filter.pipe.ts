@@ -11,21 +11,12 @@ export class FilterPipe implements PipeTransform {
       return value;
     }
 
-    let items = [];
     let filteredByColor = [];
     let filteredByGender = [];
     let filteredByType = [];
     let filteredItems = [];
     let filteredByPrice = [];
     let filterBySearchString=[]
-
-    /*
-    No filters
-    all filters
-    only type filter
-    */
-
-  
 
     if (filteredString['color'].length) {
       for (let i = 0; i < filteredString['color'].length; i++) {
@@ -38,9 +29,6 @@ export class FilterPipe implements PipeTransform {
       filteredItems = [...value];
     }
 
-   
-    //if color filter is not present - condition is handled
-
     if (filteredString['gender'].length) {
       for (let i = 0; i < filteredString['gender'].length; i++) {
         filteredByGender = [...filteredByGender, ...filteredItems.filter(val => {
@@ -48,7 +36,6 @@ export class FilterPipe implements PipeTransform {
         })]
       }
 
-      //filteredByGender consists of values after filtering by color and gender.
       filteredItems = [...filteredByGender];
     }
 
@@ -56,7 +43,6 @@ export class FilterPipe implements PipeTransform {
       for (let i = 0; i < filteredString['price'].length; i++) {
         filteredByPrice = [...filteredByPrice, ...filteredItems.filter(val => {
           let priceArray=filteredString['price'][i].split(",");
-
           return (val['price'] >= priceArray[0] && val['price'] <= priceArray[1]);
         })]
       }
