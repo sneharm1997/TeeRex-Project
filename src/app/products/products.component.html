@@ -38,7 +38,7 @@
     <div>
         <form class="search-section">
             <div class="input-group rounded">
-                <input type="search" class="form-control rounded" [formControl]="searchForm" placeholder="Search"
+                <input type="search" id="search" class="form-control rounded" [formControl]="searchForm" placeholder="Search" (keydown)="enter($event,searchForm.value)"
                     aria-label="Search" aria-describedby="search-addon" />
                 <span class="input-group-text border-0" (click)="searchProducts(searchForm.value)" id="search-addon">
                     <i class="fas fa-search"></i>

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Product } from '../product';
 import { CartProductsService } from '../services/cart-products.service';
-import {  FormControl } from '@angular/forms';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-products',
@@ -17,15 +17,15 @@ export class ProductsComponent implements OnInit {
   filstring: string;
   searchForm = new FormControl('')
   searchFilterString: string;
-  colors = ['Red','Blue','Green'];
-  genders = ['Men','Women'];
-  types=['Polo','Hoodie','Basic'];
-  prices=[
-    {value:'0 - Rs. 250',level:[0, 250]},
-    {value:'Rs. 251 - Rs. 450',level:[251, 450]},
-    {value:'Rs. 450',level:[451, 1000]}
+  colors = ['Red', 'Blue', 'Green'];
+  genders = ['Men', 'Women'];
+  types = ['Polo', 'Hoodie', 'Basic'];
+  prices = [
+    { value: '0 - Rs. 250', level: [0, 250] },
+    { value: 'Rs. 251 - Rs. 450', level: [251, 450] },
+    { value: 'Rs. 450', level: [451, 1000] }
   ]
-  
+
   constructor(private http: HttpClient, private cartProducts: CartProductsService) { }
 
   ngOnInit(): void {
@@ -54,6 +54,12 @@ export class ProductsComponent implements OnInit {
 
   searchProducts(value) {
     this.searchFilterString = value;
+  }
+
+  enter(event, value) {
+    if (event.keyCode === 13) {
+      this.searchProducts(value);
+    }
   }
 
 }

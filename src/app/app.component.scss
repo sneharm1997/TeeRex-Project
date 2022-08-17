@@ -2,83 +2,90 @@
 
 .landing-page {
     height: 100vh;
+    overflow: hidden;
     background: $background;
-    .navbar {
+
+    .header {
+        position: fixed;
         width: 100%;
-        padding: 40px 30px;
-        background: $white  !important;
-        font-size: 20px;
-        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 
-        .float-left {
-            position: absolute;
-            left: 30px;
-            font-size: 40px;
-            cursor: pointer;
-            color: $gray;
-
-            &:hover {
-                color: $pink;
-            }
-        }
-
-        .navbar-brand {
+        .navbar {
+            width: 100%;
+            padding: 40px 30px;
+            background: $gray  !important;
             font-size: 20px;
-            color: $gray;
-            position: absolute;
-            top: 50%;
-            right: 50%;
-            transform: translate(50%, -50%);
-            font-weight: bold;
-
-            &:hover {
-                color: $pink;
-            }
-        }
-
-        .float-right {
-            position: absolute;
-            right: 30px;
-
-            .products-link {
-                color: $gray;
-                cursor: pointer;
-                text-decoration: none;
-
-                &:hover {
-                    color: $pink;
-                }
-            }
-
-            .fa-cart-shopping {
-                color: $gray;
-                margin-left: 20px;
-                cursor: pointer;
-
-                &:hover {
-                    color: $pink;
-                }
-            }
-
-            .badge {
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            color: $white;
+            .float-left {
                 position: absolute;
-                display: inline-block;
-                width: 15px;
-                height: 15px;
-                background: $white;
-                border-radius: 50%;
-                color: $gray;
-                font-size: 12px;
-                line-height: 0;
-                padding: 7px 5px 5px 5px;
+                left: 30px;
+                font-size: 40px;
+                cursor: pointer;
+                &:hover {
+                    color: $pink;
+                }
+            }
+
+            .navbar-brand {
+                font-size: 20px;
+                position: absolute;
+                top: 50%;
+                right: 50%;
+                transform: translate(50%, -50%);
+                font-weight: bold;
 
                 &:hover {
                     color: $pink;
+                }
+            }
+
+            .float-right {
+                position: absolute;
+                right: 30px;
+
+                .products-link {
+                    cursor: pointer;
+                    text-decoration: none;
+                    color: $white;
+                    &:hover {
+                        color: $pink;
+                    }
+                }
+
+                .fa-cart-shopping {
+                    margin-left: 20px;
+                    cursor: pointer;
+
+                    &:hover {
+                        color: $pink;
+                    }
+                }
+
+                .badge {
+                    position: absolute;
+                    display: inline-block;
+                    width: 15px;
+                    height: 15px;
+                    background: $white;
+                    border-radius: 50%;
+                    color: $gray;
+                    font-size: 12px;
+                    line-height: 0;
+                    padding: 7px 5px 5px 5px;
+
+                    &:hover {
+                        color: $pink;
+                    }
                 }
             }
         }
     }
-    .background{
+
+    .background {
         background: $background;
+        position: relative;
+        top: 80px;
+        height: 87vh;
+        overflow-y: scroll;
     }
 }
